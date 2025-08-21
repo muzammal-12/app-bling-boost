@@ -172,7 +172,16 @@ const Index = () => {
                   color={item.color}
                   status={item.status}
                   statusText={item.statusText}
-                  onClick={() => console.log(`Opening ${item.title}`)}
+                  onClick={() => {
+                    const routes = {
+                      "Guides": "/guides",
+                      "Maintenance": "/maintenance", 
+                      "Tire Check": "/tire-check",
+                      "Sound Diagnosis": "/sound-diagnosis",
+                      "Profile": "/profile"
+                    };
+                    window.location.href = routes[item.title as keyof typeof routes] || "/";
+                  }}
                 />
               ))}
             </div>
