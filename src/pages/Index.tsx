@@ -2,6 +2,7 @@ import { DashboardCard } from "@/components/dashboard/DashboardCard";
 import { MaintenanceCard } from "@/components/dashboard/MaintenanceCard";
 import { QuickActions } from "@/components/dashboard/QuickActions";
 import { StatsCard } from "@/components/dashboard/StatsCard";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { useNavigate } from "react-router-dom";
 import { 
   BookOpen, 
@@ -143,6 +144,7 @@ const Index = () => {
               </p>
             </div>
             <div className="flex items-center gap-4">
+              <ThemeToggle />
               <div className="text-right">
                 <p className="text-sm font-medium text-foreground">2018 Honda Civic</p>
                 <p className="text-xs text-muted-foreground">87,432 miles</p>
