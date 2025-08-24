@@ -2,6 +2,7 @@ import { DashboardCard } from "@/components/dashboard/DashboardCard";
 import { MaintenanceCard } from "@/components/dashboard/MaintenanceCard";
 import { QuickActions } from "@/components/dashboard/QuickActions";
 import { StatsCard } from "@/components/dashboard/StatsCard";
+import { useNavigate } from "react-router-dom";
 import { 
   BookOpen, 
   Wrench, 
@@ -16,6 +17,7 @@ import {
 } from "lucide-react";
 
 const Index = () => {
+  const navigate = useNavigate();
   const dashboardItems = [
     {
       title: "Guides",
@@ -178,9 +180,10 @@ const Index = () => {
                       "Maintenance": "/maintenance", 
                       "Tire Check": "/tire-check",
                       "Sound Diagnosis": "/sound-diagnosis",
+                      "Shop Network": "/shop-network",
                       "Profile": "/profile"
                     };
-                    window.location.href = routes[item.title as keyof typeof routes] || "/";
+                    navigate(routes[item.title as keyof typeof routes] || "/");
                   }}
                 />
               ))}
