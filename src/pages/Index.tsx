@@ -1,16 +1,8 @@
-import { DashboardCard } from "@/components/dashboard/DashboardCard";
 import { MaintenanceCard } from "@/components/dashboard/MaintenanceCard";
 import { QuickActions } from "@/components/dashboard/QuickActions";
 import { StatsCard } from "@/components/dashboard/StatsCard";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { useNavigate } from "react-router-dom";
-import { 
-  BookOpen, 
-  Wrench, 
-  Car, 
-  Headphones, 
-  MapPin, 
-  User,
+import {
   Gauge,
   Calendar,
   DollarSign,
@@ -18,57 +10,6 @@ import {
 } from "lucide-react";
 
 const Index = () => {
-  const navigate = useNavigate();
-  const dashboardItems = [
-    {
-      title: "Guides",
-      description: "DIY tutorials, maintenance tips, and step-by-step repair guides",
-      icon: <BookOpen className="w-6 h-6 text-white" />,
-      color: "bg-automotive-blue",
-      status: "active" as const,
-      statusText: "12 new guides"
-    },
-    {
-      title: "Maintenance",
-      description: "Track service schedules, upcoming maintenance, and service history",
-      icon: <Wrench className="w-6 h-6 text-white" />,
-      color: "bg-automotive-teal",
-      status: "warning" as const,
-      statusText: "2 overdue"
-    },
-    {
-      title: "Tire Check",
-      description: "AI-powered tire wear analysis using photo-based inspection",
-      icon: <Car className="w-6 h-6 text-white" />,
-      color: "bg-automotive-red",
-      status: "success" as const,
-      statusText: "Last check: 5 days ago"
-    },
-    {
-      title: "Sound Diagnosis",
-      description: "Identify vehicle issues by analyzing unusual sounds and noises",
-      icon: <Headphones className="w-6 h-6 text-white" />,
-      color: "bg-automotive-purple",
-      status: "pending" as const,
-      statusText: "Analysis ready"
-    },
-    {
-      title: "Shop Network",
-      description: "Find trusted nearby mechanics, service centers, and parts dealers",
-      icon: <MapPin className="w-6 h-6 text-white" />,
-      color: "bg-automotive-green",
-      status: "active" as const,
-      statusText: "15 shops nearby"
-    },
-    {
-      title: "Profile",
-      description: "Manage your vehicle information, service records, and account settings",
-      icon: <User className="w-6 h-6 text-white" />,
-      color: "bg-automotive-orange",
-      status: "success" as const,
-      statusText: "Profile complete"
-    }
-  ];
 
   const maintenanceItems = [
     {
@@ -130,24 +71,53 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div 
+      className="min-h-screen bg-background"
+      style={{ backgroundColor: "hsl(var(--background))" }}
+    >
       {/* Header */}
-      <header className="border-b border-border/50 bg-card/50 backdrop-blur-sm sticky top-0 z-10">
+      <header 
+        className="border-b border-border/50 bg-card/50 backdrop-blur-sm sticky top-0 z-10"
+        style={{
+          borderBottom: "1px solid hsl(var(--border) / 0.5)",
+          backgroundColor: "hsl(var(--card) / 0.5)"
+        }}
+      >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                myCarApp
+              <h1 
+                className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent"
+                style={{
+                  background: "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent"
+                }}
+              >
+                Dashboard
               </h1>
-              <p className="text-sm text-muted-foreground mt-1">
-                Your comprehensive vehicle maintenance companion
+              <p 
+                className="text-sm text-muted-foreground mt-1"
+                style={{ color: "hsl(var(--muted-foreground))" }}
+              >
+                Your comprehensive vehicle maintenance overview
               </p>
             </div>
             <div className="flex items-center gap-4">
               <ThemeToggle />
               <div className="text-right">
-                <p className="text-sm font-medium text-foreground">2018 Honda Civic</p>
-                <p className="text-xs text-muted-foreground">87,432 miles</p>
+                <p 
+                  className="text-sm font-medium text-foreground"
+                  style={{ color: "hsl(var(--foreground))" }}
+                >
+                  2018 Honda Civic
+                </p>
+                <p 
+                  className="text-xs text-muted-foreground"
+                  style={{ color: "hsl(var(--muted-foreground))" }}
+                >
+                  87,432 miles
+                </p>
               </div>
             </div>
           </div>
@@ -157,44 +127,24 @@ const Index = () => {
       <main className="container mx-auto px-6 py-8">
         {/* Stats Overview */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold text-foreground mb-4">Vehicle Overview</h2>
+          <h2 
+            className="text-lg font-semibold text-foreground mb-4"
+            style={{ color: "hsl(var(--foreground))" }}
+          >
+            Vehicle Overview
+          </h2>
           <StatsCard stats={stats} />
         </section>
 
         {/* Main Dashboard Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-          {/* Dashboard Cards */}
-          <div className="lg:col-span-2">
-            <h2 className="text-lg font-semibold text-foreground mb-4">Features</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {dashboardItems.map((item, index) => (
-                <DashboardCard
-                  key={index}
-                  title={item.title}
-                  description={item.description}
-                  icon={item.icon}
-                  color={item.color}
-                  status={item.status}
-                  statusText={item.statusText}
-                  onClick={() => {
-                    const routes = {
-                      "Guides": "/guides",
-                      "Maintenance": "/maintenance", 
-                      "Tire Check": "/tire-check",
-                      "Sound Diagnosis": "/sound-diagnosis",
-                      "Shop Network": "/shop-network",
-                      "Profile": "/profile"
-                    };
-                    navigate(routes[item.title as keyof typeof routes] || "/");
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Sidebar */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          {/* Quick Actions */}
           <div className="space-y-6">
             <QuickActions />
+          </div>
+          
+          {/* Maintenance Overview */}
+          <div className="space-y-6">
             <MaintenanceCard items={maintenanceItems} />
           </div>
         </div>
