@@ -85,23 +85,30 @@ const Index = () => {
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 
-                className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent"
-                style={{
-                  background: "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent"
-                }}
-              >
-                Dashboard
-              </h1>
-              <p 
-                className="text-sm text-muted-foreground mt-1"
-                style={{ color: "hsl(var(--muted-foreground))" }}
-              >
-                Your comprehensive vehicle maintenance overview
-              </p>
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+              <img 
+                src="/logo.png"
+                alt="PROVE IT AUTO"
+                style={{ height: "3rem", width: "auto" }}
+              />
+              <div>
+                <h1 
+                  className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent"
+                  style={{
+                    background: "var(--gradient-primary)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent"
+                  }}
+                >
+                  PROVE IT AUTO Dashboard
+                </h1>
+                <p 
+                  className="text-sm text-muted-foreground mt-1"
+                  style={{ color: "hsl(var(--muted-foreground))" }}
+                >
+                  Your comprehensive vehicle maintenance overview
+                </p>
+              </div>
             </div>
             <div className="flex items-center gap-4">
               <ThemeToggle />

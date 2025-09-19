@@ -92,14 +92,36 @@ export function AppSidebar() {
           className="p-4 border-b border-border"
           style={{ borderBottom: "1px solid hsl(var(--border))" }}
         >
-          {!isCollapsed && (
-            <h2 
-              className="text-lg font-bold text-foreground"
-              style={{ color: "hsl(var(--foreground))" }}
-            >
-              myCarApp
-            </h2>
-          )}
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+            <img 
+              src="/logo.png"
+              alt="PROVE IT AUTO"
+              style={{ 
+                height: isCollapsed ? "2rem" : "2.5rem", 
+                width: "auto"
+              }} 
+            />
+            {!isCollapsed && (
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                <span style={{ 
+                  fontSize: "1rem", 
+                  fontWeight: "bold",
+                  color: "hsl(var(--primary))",
+                  lineHeight: "1.2"
+                }}>
+                  PROVE IT
+                </span>
+                <span style={{ 
+                  fontSize: "1rem", 
+                  fontWeight: "bold",
+                  color: "hsl(var(--automotive-green))",
+                  lineHeight: "1.2"
+                }}>
+                  AUTO
+                </span>
+              </div>
+            )}
+          </div>
         </div>
 
         <SidebarGroup className="mt-4">
