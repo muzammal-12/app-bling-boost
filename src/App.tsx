@@ -19,6 +19,9 @@ import ShopNetwork from "./pages/ShopNetwork";
 import ProfileSettings from "./pages/ProfileSettings";
 import Splash from "./pages/Splash";
 import NotFound from "./pages/NotFound";
+import OnboardingWizard from "./pages/onboarding/OnboardingWizard";
+import SneakPeek from "./pages/onboarding/SneakPeek";
+import Paywall from "./pages/Paywall";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +53,9 @@ const App = () => (
                 <main className="flex-1">
                   <Routes>
                     <Route path="/splash" element={<Splash />} />
+                    <Route path="/onboarding" element={<OnboardingWizard />} />
+                    <Route path="/onboarding/preview" element={<SneakPeek />} />
+                    <Route path="/paywall" element={<Paywall />} />
                     <Route path="/" element={<Index />} />
                     <Route path="/dashboard" element={<Index />} />
                     <Route path="/login" element={<Login />} />

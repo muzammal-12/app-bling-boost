@@ -62,7 +62,7 @@ const Splash = () => {
       {/* Action Buttons */}
       <div className="space-y-4 w-full max-w-sm">
         <Button
-          onClick={() => navigate('/auth/signup')}
+          onClick={() => navigate('/onboarding')}
           size="lg"
           className="w-full bg-white text-primary hover:bg-white/90 font-semibold"
         >
