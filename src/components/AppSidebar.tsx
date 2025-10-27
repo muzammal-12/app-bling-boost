@@ -19,7 +19,8 @@ import {
   MapPin,
   User,
   Home,
-  Settings
+  Settings,
+  Gauge
 } from "lucide-react";
 
 const navigationItems = [
@@ -47,6 +48,11 @@ const navigationItems = [
     title: "Sound Diagnosis",
     url: "/sound-diagnosis",
     icon: Headphones,
+  },
+  {
+    title: "Dashboard Scan",
+    url: "/dashboard-scan",
+    icon: Gauge,
   },
   {
     title: "Shop Network",

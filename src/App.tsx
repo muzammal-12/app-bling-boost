@@ -16,6 +16,7 @@ import MaintenanceRepairs from "./pages/MaintenanceRepairs";
 import TirePartCheck from "./pages/TirePartCheck";
 import SoundDiagnosis from "./pages/SoundDiagnosis";
 import ShopNetwork from "./pages/ShopNetwork";
+import DashboardScan from "./pages/DashboardScan";
 import ProfileSettings from "./pages/ProfileSettings";
 import Splash from "./pages/Splash";
 import NotFound from "./pages/NotFound";
@@ -65,6 +66,7 @@ const App = () => (
                     <Route path="/maintenance" element={<MaintenanceRepairs />} />
                     <Route path="/tire-check" element={<TirePartCheck />} />
                     <Route path="/sound-diagnosis" element={<SoundDiagnosis />} />
+                    <Route path="/dashboard-scan" element={<DashboardScan />} />
                     <Route path="/shop-network" element={<ShopNetwork />} />
                     <Route path="/profile" element={<ProfileSettings />} />
                     <Route path="*" element={<NotFound />} />
