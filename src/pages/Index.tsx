@@ -71,77 +71,90 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-automotive-blue/5">
-      {/* Automotive-styled Header with speedometer vibe */}
-      <header className="border-b-2 border-automotive-blue/20 bg-gradient-to-r from-card/95 via-card/90 to-automotive-teal/10 backdrop-blur-md sticky top-0 z-10 shadow-card">
+    <div 
+      className="min-h-screen bg-background"
+      style={{ backgroundColor: "hsl(var(--background))" }}
+    >
+      {/* Header */}
+      <header 
+        className="border-b border-border/50 bg-card/50 backdrop-blur-sm sticky top-0 z-10"
+        style={{
+          borderBottom: "1px solid hsl(var(--border) / 0.5)",
+          backgroundColor: "hsl(var(--card) / 0.5)"
+        }}
+      >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-primary rounded-full blur-xl opacity-30 animate-pulse"></div>
-                <img 
-                  src="/logo.png"
-                  alt="PROVE IT AUTO"
-                  className="h-12 w-auto relative z-10"
-                />
-              </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+              <img 
+                src="/logo.png"
+                alt="PROVE IT AUTO"
+                style={{ height: "3rem", width: "auto" }}
+              />
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                  PROVE IT AUTO
+                <h1 
+                  className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent"
+                  style={{
+                    background: "var(--gradient-primary)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent"
+                  }}
+                >
+                  PROVE IT AUTO Dashboard
                 </h1>
-                <p className="text-xs text-muted-foreground font-medium tracking-wide uppercase">
-                  Vehicle Command Center
+                <p 
+                  className="text-sm text-muted-foreground mt-1"
+                  style={{ color: "hsl(var(--muted-foreground))" }}
+                >
+                  Your comprehensive vehicle maintenance overview
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <ThemeToggle />
-              {/* Car Info Display */}
-              <div className="relative px-4 py-2 rounded-lg bg-gradient-to-br from-automotive-blue/10 to-automotive-teal/10 border border-automotive-blue/20">
-                <div className="absolute top-0 right-0 w-2 h-2 bg-automotive-green rounded-full animate-pulse"></div>
-                <p className="text-sm font-bold text-foreground">
+              <div className="text-right">
+                <p 
+                  className="text-sm font-medium text-foreground"
+                  style={{ color: "hsl(var(--foreground))" }}
+                >
                   2018 Honda Civic
                 </p>
-                <p className="text-xs text-automotive-teal font-semibold">
-                  87,432 miles • Active
+                <p 
+                  className="text-xs text-muted-foreground"
+                  style={{ color: "hsl(var(--muted-foreground))" }}
+                >
+                  87,432 miles
                 </p>
               </div>
             </div>
           </div>
         </div>
-        {/* Racing stripe accent */}
-        <div className="h-1 bg-gradient-to-r from-transparent via-automotive-blue to-transparent"></div>
       </header>
 
       <main className="container mx-auto px-6 py-8">
-        {/* Stats Overview - Gauge Style */}
+        {/* Stats Overview */}
         <section className="mb-8">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-1 w-12 bg-gradient-primary rounded-full"></div>
-            <h2 className="text-lg font-bold text-foreground uppercase tracking-wide">
-              Performance Metrics
-            </h2>
-          </div>
+          <h2 
+            className="text-lg font-semibold text-foreground mb-4"
+            style={{ color: "hsl(var(--foreground))" }}
+          >
+            Vehicle Overview
+          </h2>
           <StatsCard stats={stats} />
         </section>
 
         {/* Main Dashboard Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          {/* Quick Actions with automotive styling */}
-          <div className="space-y-6 relative">
-            <div className="absolute -top-2 -left-2 w-20 h-20 bg-automotive-blue/5 rounded-full blur-2xl"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          {/* Quick Actions */}
+          <div className="space-y-6">
             <QuickActions />
           </div>
           
           {/* Maintenance Overview */}
-          <div className="space-y-6 relative">
-            <div className="absolute -top-2 -right-2 w-20 h-20 bg-automotive-teal/5 rounded-full blur-2xl"></div>
+          <div className="space-y-6">
             <MaintenanceCard items={maintenanceItems} />
           </div>
         </div>
-
-        {/* Decorative racing elements */}
-        <div className="fixed bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-automotive-blue via-automotive-teal to-automotive-green pointer-events-none"></div>
       </main>
     </div>
   );
