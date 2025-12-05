@@ -6,7 +6,9 @@ import {
   Gauge,
   Calendar,
   DollarSign,
-  AlertTriangle
+  AlertTriangle,
+  Sparkles,
+  Car
 } from "lucide-react";
 
 const Index = () => {
@@ -42,7 +44,7 @@ const Index = () => {
       change: 12,
       changeType: "increase" as const,
       icon: DollarSign,
-      color: "bg-automotive-green"
+      color: "from-automotive-green to-automotive-teal"
     },
     {
       label: "Vehicle Health",
@@ -50,7 +52,7 @@ const Index = () => {
       change: 5,
       changeType: "increase" as const,
       icon: Gauge,
-      color: "bg-automotive-blue"
+      color: "from-automotive-blue to-automotive-cyan"
     },
     {
       label: "Next Service",
@@ -58,7 +60,7 @@ const Index = () => {
       change: -3,
       changeType: "decrease" as const,
       icon: Calendar,
-      color: "bg-automotive-teal"
+      color: "from-automotive-purple to-automotive-blue"
     },
     {
       label: "Active Issues",
@@ -66,92 +68,93 @@ const Index = () => {
       change: -1,
       changeType: "decrease" as const,
       icon: AlertTriangle,
-      color: "bg-automotive-red"
+      color: "from-automotive-red to-automotive-orange"
     }
   ];
 
   return (
-    <div 
-      className="min-h-screen bg-background"
-      style={{ backgroundColor: "hsl(var(--background))" }}
-    >
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-3xl animate-float" />
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-accent/15 to-primary/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-glow opacity-50" />
+      </div>
+
       {/* Header */}
-      <header 
-        className="border-b border-border/50 bg-card/50 backdrop-blur-sm sticky top-0 z-10"
-        style={{
-          borderBottom: "1px solid hsl(var(--border) / 0.5)",
-          backgroundColor: "hsl(var(--card) / 0.5)"
-        }}
-      >
+      <header className="relative border-b border-border/50 glass-strong sticky top-0 z-10">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-              <img 
-                src="/logo.png"
-                alt="PROVE IT AUTO"
-                style={{ height: "3rem", width: "auto" }}
-              />
+            <div className="flex items-center gap-4">
+              <div className="relative">
+                <img 
+                  src="/logo.png"
+                  alt="PROVE IT AUTO"
+                  className="h-12 w-auto relative z-10"
+                />
+                <div className="absolute inset-0 bg-primary/30 blur-xl rounded-full" />
+              </div>
               <div>
-                <h1 
-                  className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent"
-                  style={{
-                    background: "var(--gradient-primary)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent"
-                  }}
-                >
-                  PROVE IT AUTO Dashboard
-                </h1>
-                <p 
-                  className="text-sm text-muted-foreground mt-1"
-                  style={{ color: "hsl(var(--muted-foreground))" }}
-                >
-                  Your comprehensive vehicle maintenance overview
+                <div className="flex items-center gap-2">
+                  <h1 className="text-2xl font-display font-bold gradient-text">
+                    PROVE IT AUTO
+                  </h1>
+                  <Sparkles className="w-5 h-5 text-primary animate-pulse-glow" />
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Your comprehensive vehicle maintenance hub
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <ThemeToggle />
-              <div className="text-right">
-                <p 
-                  className="text-sm font-medium text-foreground"
-                  style={{ color: "hsl(var(--foreground))" }}
-                >
-                  2018 Honda Civic
-                </p>
-                <p 
-                  className="text-xs text-muted-foreground"
-                  style={{ color: "hsl(var(--muted-foreground))" }}
-                >
-                  87,432 miles
-                </p>
+              <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-card/80 border border-border/50 backdrop-blur-sm">
+                <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center shadow-glow">
+                  <Car className="w-5 h-5 text-primary-foreground" />
+                </div>
+                <div className="text-right">
+                  <p className="text-sm font-semibold text-foreground">
+                    2018 Honda Civic
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    87,432 miles
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </header>
 
-      <main className="container mx-auto px-6 py-8">
-        {/* Stats Overview */}
-        <section className="mb-8">
-          <h2 
-            className="text-lg font-semibold text-foreground mb-4"
-            style={{ color: "hsl(var(--foreground))" }}
-          >
+      <main className="container mx-auto px-6 py-8 relative z-10">
+        {/* Welcome Section */}
+        <section className="mb-8 animate-fade-in">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="h-1 w-12 bg-gradient-primary rounded-full" />
+            <span className="text-sm font-medium text-primary uppercase tracking-wider">Dashboard</span>
+          </div>
+          <h2 className="text-3xl font-display font-bold text-foreground mb-1">
             Vehicle Overview
           </h2>
+          <p className="text-muted-foreground">
+            Stay on top of your vehicle's health and maintenance schedule
+          </p>
+        </section>
+
+        {/* Stats Overview */}
+        <section className="mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
           <StatsCard stats={stats} />
         </section>
 
         {/* Main Dashboard Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Quick Actions */}
-          <div className="space-y-6">
+          <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <QuickActions />
           </div>
           
           {/* Maintenance Overview */}
-          <div className="space-y-6">
+          <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <MaintenanceCard items={maintenanceItems} />
           </div>
         </div>
