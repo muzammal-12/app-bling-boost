@@ -19,8 +19,8 @@ import {
   MapPin,
   User,
   Home,
-  Settings,
-  Gauge
+  Gauge,
+  Sparkles
 } from "lucide-react";
 
 const navigationItems = [
@@ -72,57 +72,31 @@ export function AppSidebar() {
   const currentPath = location.pathname;
   const isCollapsed = state === "collapsed";
 
-  const isActive = (path: string) => {
-    if (path === "/") {
-      return currentPath === "/";
-    }
-    return currentPath.startsWith(path);
-  };
-
-  const getNavCls = ({ isActive: active }: { isActive: boolean }) =>
-    active 
-      ? "bg-primary text-primary-foreground font-medium hover:bg-primary/90" 
-      : "hover:bg-muted/50 text-muted-foreground hover:text-foreground";
-
   return (
     <Sidebar
-      className={`${isCollapsed ? "w-14" : "w-64"} transition-all duration-300 border-r border-border bg-card`}
+      className={`${isCollapsed ? "w-14" : "w-64"} transition-all duration-300 border-r border-border/50 bg-sidebar`}
       collapsible="icon"
-      style={{
-        borderRight: "1px solid hsl(var(--border))",
-        backgroundColor: "hsl(var(--card))",
-      }}
     >
-      <SidebarContent>
-        <div 
-          className="p-4 border-b border-border"
-          style={{ borderBottom: "1px solid hsl(var(--border))" }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-            <img 
-              src="/logo.png"
-              alt="PROVE IT AUTO"
-              style={{ 
-                height: isCollapsed ? "2rem" : "2.5rem", 
-                width: "auto"
-              }} 
-            />
+      <SidebarContent className="relative overflow-hidden">
+        {/* Decorative gradient */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
+        
+        <div className="p-4 border-b border-border/50 relative">
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <img 
+                src="/logo.png"
+                alt="PROVE IT AUTO"
+                className={`${isCollapsed ? "h-8" : "h-10"} w-auto transition-all duration-300`}
+              />
+              <div className="absolute inset-0 bg-primary/20 blur-lg rounded-full" />
+            </div>
             {!isCollapsed && (
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                <span style={{ 
-                  fontSize: "1rem", 
-                  fontWeight: "bold",
-                  color: "hsl(var(--primary))",
-                  lineHeight: "1.2"
-                }}>
+              <div className="flex flex-col">
+                <span className="text-base font-display font-bold gradient-text leading-tight">
                   PROVE IT
                 </span>
-                <span style={{ 
-                  fontSize: "1rem", 
-                  fontWeight: "bold",
-                  color: "hsl(var(--automotive-green))",
-                  lineHeight: "1.2"
-                }}>
+                <span className="text-base font-display font-bold text-accent leading-tight">
                   AUTO
                 </span>
               </div>
@@ -131,45 +105,57 @@ export function AppSidebar() {
         </div>
 
         <SidebarGroup className="mt-4">
-          <SidebarGroupLabel 
-            className={`${isCollapsed ? "sr-only" : ""} text-muted-foreground px-4 py-2 text-sm font-medium`}
-            style={{ color: "hsl(var(--muted-foreground))" }}
-          >
-            Navigation
-          </SidebarGroupLabel>
+          {!isCollapsed && (
+            <SidebarGroupLabel className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider flex items-center gap-2">
+              <Sparkles className="w-3 h-3" />
+              Navigation
+            </SidebarGroupLabel>
+          )}
 
           <SidebarGroupContent>
-            <SidebarMenu>
-              {navigationItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <NavLink
-                      to={item.url}
-                      end={item.url === "/"}
-                      className={({ isActive: active }) => 
-                        `flex items-center px-4 py-2 rounded-md transition-colors duration-200 ${getNavCls({ isActive: active })}`
-                      }
-                      style={({ isActive: active }) => ({
-                        backgroundColor: active 
-                          ? "hsl(var(--primary))" 
-                          : "transparent",
-                        color: active 
-                          ? "hsl(var(--primary-foreground))" 
-                          : "hsl(var(--muted-foreground))",
-                      })}
-                    >
-                      <item.icon 
-                        className={`h-5 w-5 ${isCollapsed ? "" : "mr-3"} flex-shrink-0`}
-                      />
-                      {!isCollapsed && (
-                        <span className="text-sm font-medium truncate">
-                          {item.title}
-                        </span>
-                      )}
-                    </NavLink>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+            <SidebarMenu className="px-2 space-y-1">
+              {navigationItems.map((item) => {
+                const isActive = item.url === "/" 
+                  ? currentPath === "/" 
+                  : currentPath.startsWith(item.url);
+
+                return (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild>
+                      <NavLink
+                        to={item.url}
+                        end={item.url === "/"}
+                        className={`group relative flex items-center px-3 py-2.5 rounded-xl transition-all duration-300 ${
+                          isActive 
+                            ? "bg-gradient-primary text-primary-foreground shadow-lg shadow-primary/25" 
+                            : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                        }`}
+                      >
+                        {/* Active indicator */}
+                        {isActive && (
+                          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary-foreground rounded-full" />
+                        )}
+                        
+                        <item.icon 
+                          className={`h-5 w-5 ${isCollapsed ? "" : "mr-3"} flex-shrink-0 transition-transform duration-300 ${
+                            isActive ? "" : "group-hover:scale-110"
+                          }`}
+                        />
+                        {!isCollapsed && (
+                          <span className="text-sm font-medium truncate">
+                            {item.title}
+                          </span>
+                        )}
+
+                        {/* Hover glow effect */}
+                        {!isActive && (
+                          <div className="absolute inset-0 rounded-xl bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
+                        )}
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

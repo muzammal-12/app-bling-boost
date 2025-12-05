@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,110 +11,132 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Light theme - PROVE IT AUTO Brand Colors */
-    --background: 180 15% 98%;
-    --foreground: 195 85% 15%;
+    --background: 220 25% 97%;
+    --foreground: 220 50% 10%;
 
-    --card: 180 25% 96%;
-    --card-foreground: 195 85% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 50% 10%;
 
-    --popover: 180 25% 98%;
-    --popover-foreground: 195 85% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 50% 10%;
 
-    --primary: 195 85% 25%;
-    --primary-foreground: 180 15% 98%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 165 45% 85%;
-    --secondary-foreground: 195 85% 15%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 50% 10%;
 
-    --muted: 175 20% 92%;
-    --muted-foreground: 195 25% 45%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 145 75% 45%;
-    --accent-foreground: 195 85% 15%;
+    --accent: 142 76% 45%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 180 15% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 175 25% 88%;
-    --input: 175 25% 90%;
-    --ring: 195 85% 25%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 199 89% 48%;
 
-    /* PROVE IT AUTO brand colors */
-    --automotive-blue: 195 85% 25%;
-    --automotive-teal: 175 75% 35%;
-    --automotive-red: 0 75% 55%;
-    --automotive-orange: 31 95% 58%;
+    /* PROVE IT AUTO brand colors - more vibrant */
+    --automotive-blue: 199 89% 48%;
+    --automotive-teal: 173 80% 40%;
+    --automotive-red: 0 84% 60%;
+    --automotive-orange: 25 95% 53%;
     --automotive-purple: 262 83% 58%;
-    --automotive-green: 145 75% 45%;
+    --automotive-green: 142 76% 45%;
+    --automotive-cyan: 186 94% 45%;
 
-    /* Gradients - matching logo colors */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--automotive-blue)), hsl(var(--automotive-green)));
-    --gradient-card: linear-gradient(145deg, hsl(180 25% 96%), hsl(175 20% 92%));
-    --gradient-hover: linear-gradient(145deg, hsl(175 20% 92%), hsl(165 45% 85%));
+    /* Gradients - vibrant and eye-catching */
+    --gradient-primary: linear-gradient(135deg, hsl(199 89% 48%), hsl(142 76% 45%));
+    --gradient-secondary: linear-gradient(135deg, hsl(262 83% 58%), hsl(199 89% 48%));
+    --gradient-accent: linear-gradient(135deg, hsl(25 95% 53%), hsl(0 84% 60%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 25% 97%));
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(199 89% 48% / 0.15), transparent 70%);
+    --gradient-mesh: linear-gradient(45deg, hsl(199 89% 48% / 0.03) 25%, transparent 25%),
+                     linear-gradient(-45deg, hsl(142 76% 45% / 0.03) 25%, transparent 25%);
 
-    /* Shadows */
-    --shadow-card: 0 4px 12px -2px hsl(195 85% 25% / 0.1);
-    --shadow-hover: 0 8px 25px -5px hsl(195 85% 25% / 0.15);
+    /* Shadows - more dramatic */
+    --shadow-card: 0 4px 20px -4px hsl(220 50% 10% / 0.08), 0 0 0 1px hsl(220 13% 91% / 0.5);
+    --shadow-hover: 0 20px 40px -12px hsl(199 89% 48% / 0.25), 0 0 0 1px hsl(199 89% 48% / 0.1);
+    --shadow-glow: 0 0 30px hsl(199 89% 48% / 0.3);
+    --shadow-inset: inset 0 1px 0 hsl(0 0% 100% / 0.5);
 
     --radius: 1rem;
 
-    --sidebar-background: 180 20% 95%;
-    --sidebar-foreground: 195 85% 20%;
-    --sidebar-primary: 195 85% 25%;
-    --sidebar-primary-foreground: 180 15% 98%;
-    --sidebar-accent: 175 35% 88%;
-    --sidebar-accent-foreground: 195 85% 20%;
-    --sidebar-border: 175 25% 85%;
-    --sidebar-ring: 195 85% 25%;
+    --sidebar-background: 220 25% 98%;
+    --sidebar-foreground: 220 50% 15%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 50% 15%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 199 89% 48%;
   }
 
   .dark {
     /* Dark theme - PROVE IT AUTO Brand Colors */
-    --background: 195 25% 8%;
-    --foreground: 180 15% 95%;
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
 
-    --card: 195 25% 12%;
-    --card-foreground: 180 15% 95%;
+    --card: 224 45% 8%;
+    --card-foreground: 213 31% 91%;
 
-    --popover: 195 25% 10%;
-    --popover-foreground: 180 15% 95%;
+    --popover: 224 45% 6%;
+    --popover-foreground: 213 31% 91%;
 
-    --primary: 165 65% 65%;
-    --primary-foreground: 195 85% 10%;
+    --primary: 199 89% 55%;
+    --primary-foreground: 224 71% 4%;
 
-    --secondary: 185 35% 20%;
-    --secondary-foreground: 180 15% 95%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 213 31% 91%;
 
-    --muted: 190 20% 18%;
-    --muted-foreground: 180 15% 70%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 175 45% 25%;
-    --accent-foreground: 180 15% 95%;
+    --accent: 142 70% 50%;
+    --accent-foreground: 224 71% 4%;
 
-    --destructive: 0 75% 55%;
-    --destructive-foreground: 180 15% 95%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 190 25% 22%;
-    --input: 190 25% 20%;
-    --ring: 165 65% 65%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 199 89% 55%;
+
+    /* Dark theme brand colors */
+    --automotive-blue: 199 89% 55%;
+    --automotive-teal: 173 80% 45%;
+    --automotive-red: 0 84% 60%;
+    --automotive-orange: 25 95% 58%;
+    --automotive-purple: 262 83% 65%;
+    --automotive-green: 142 70% 50%;
+    --automotive-cyan: 186 94% 50%;
 
     /* Dark theme gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(195 75% 35%), hsl(145 65% 45%));
-    --gradient-card: linear-gradient(145deg, hsl(195 25% 12%), hsl(190 20% 18%));
-    --gradient-hover: linear-gradient(145deg, hsl(190 20% 18%), hsl(175 45% 25%));
+    --gradient-primary: linear-gradient(135deg, hsl(199 89% 55%), hsl(142 70% 50%));
+    --gradient-secondary: linear-gradient(135deg, hsl(262 83% 65%), hsl(199 89% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(25 95% 58%), hsl(0 84% 60%));
+    --gradient-card: linear-gradient(145deg, hsl(224 45% 10%), hsl(224 45% 6%));
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(199 89% 55% / 0.2), transparent 70%);
+    --gradient-mesh: linear-gradient(45deg, hsl(199 89% 55% / 0.05) 25%, transparent 25%),
+                     linear-gradient(-45deg, hsl(142 70% 50% / 0.05) 25%, transparent 25%);
 
     /* Dark theme shadows */
-    --shadow-card: 0 4px 12px -2px hsl(195 85% 15% / 0.4);
-    --shadow-hover: 0 8px 25px -5px hsl(195 85% 15% / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.4), 0 0 0 1px hsl(215 28% 20% / 0.5);
+    --shadow-hover: 0 20px 40px -12px hsl(199 89% 55% / 0.3), 0 0 0 1px hsl(199 89% 55% / 0.2);
+    --shadow-glow: 0 0 40px hsl(199 89% 55% / 0.4);
+    --shadow-inset: inset 0 1px 0 hsl(215 28% 25% / 0.5);
 
-    --sidebar-background: 195 30% 10%;
-    --sidebar-foreground: 180 15% 90%;
-    --sidebar-primary: 165 65% 65%;
-    --sidebar-primary-foreground: 195 85% 10%;
-    --sidebar-accent: 190 30% 18%;
-    --sidebar-accent-foreground: 180 15% 90%;
-    --sidebar-border: 190 25% 25%;
-    --sidebar-ring: 165 65% 65%;
+    --sidebar-background: 224 45% 6%;
+    --sidebar-foreground: 213 31% 91%;
+    --sidebar-primary: 199 89% 55%;
+    --sidebar-primary-foreground: 224 71% 4%;
+    --sidebar-accent: 215 28% 15%;
+    --sidebar-accent-foreground: 213 31% 91%;
+    --sidebar-border: 215 28% 20%;
+    --sidebar-ring: 199 89% 55%;
   }
 }
 
@@ -122,12 +146,18 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
   }
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -136,25 +166,225 @@ All colors MUST be HSL.
 
   ::-webkit-scrollbar-thumb {
     @apply bg-muted rounded-full;
+    border: 2px solid transparent;
+    background-clip: content-box;
   }
 
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-muted-foreground/60;
   }
+}
 
+@layer components {
   /* Glass morphism effect */
   .glass {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: hsl(var(--card) / 0.7);
+    border: 1px solid hsl(var(--border) / 0.5);
   }
 
+  .glass-strong {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: hsl(var(--card) / 0.85);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-secondary {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.4), 0 0 40px hsl(var(--primary) / 0.2);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.4), 0 0 40px hsl(var(--accent) / 0.2);
+  }
+
+  /* Card with shine effect */
+  .card-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(0 0% 100% / 0.1),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+
+  .card-shine:hover::before {
+    left: 100%;
+  }
+
+  /* Animated border gradient */
+  .border-gradient {
+    position: relative;
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+  }
+
+  .border-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: inherit;
+    background: var(--gradient-primary);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .border-gradient:hover::before {
+    opacity: 1;
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse ring effect */
+  .pulse-ring {
+    position: relative;
+  }
+
+  .pulse-ring::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+    border: 2px solid hsl(var(--primary) / 0.5);
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Icon container styles */
+  .icon-container {
+    @apply relative flex items-center justify-center rounded-xl;
+    background: var(--gradient-primary);
+    box-shadow: 0 4px 15px hsl(var(--primary) / 0.3);
+  }
+
+  .icon-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    filter: blur(10px);
+    opacity: 0.5;
+    z-index: -1;
+  }
+}
+
+@layer utilities {
   /* Smooth transitions for all interactive elements */
-  button, .card, [role="button"] {
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* Focus styles */
-  button:focus-visible, [role="button"]:focus-visible {
+  .focus-ring {
     @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
+  }
+
+  /* Mesh background */
+  .bg-mesh {
+    background-image: var(--gradient-mesh);
+    background-size: 40px 40px;
+  }
+
+  /* Noise texture overlay */
+  .noise {
+    position: relative;
+  }
+
+  .noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.02;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Keyframe animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
   }
 }
